@@ -15,10 +15,10 @@ var ListStudentC []StudentC
 func (s *Student) Input() {
 	consoleReader := bufio.NewReader(os.Stdin)
 	fmt.Println("Nhap so bao danh cua sinh vien\n")
-	ID, _ := consoleReader.ReadString('\n')
-	ID = strings.Replace(ID, "\n", "", -1)
-	IDInt, _ := strconv.ParseInt(ID, 10, 64)
-	s.ID = IDInt
+	id, _ := consoleReader.ReadString('\n')
+	id = strings.Replace(id, "\n", "", -1)
+	idInt, _ := strconv.ParseInt(id, 10, 64)
+	s.ID = idInt
 
 	fmt.Println("Nhap ten cua sinh vien\n")
 	nameInp, _ := consoleReader.ReadString('\n')
@@ -31,9 +31,9 @@ func (s *Student) Input() {
 	s.Address = addr
 
 	fmt.Println("Nhap so diem uu tien cua sinh vien\n")
-	ScorePri, _ := consoleReader.ReadString('\n')
-	ScorePri = strings.Replace(ScorePri, "\n", "", -1)
-	ScorePriFloat, _ := strconv.ParseFloat(ScorePri, 64)
+	scorePri, _ := consoleReader.ReadString('\n')
+	scorePri = strings.Replace(scorePri, "\n", "", -1)
+	ScorePriFloat, _ := strconv.ParseFloat(scorePri, 64)
 	s.ScorePrio = ScorePriFloat
 }
 
