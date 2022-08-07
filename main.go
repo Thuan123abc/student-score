@@ -1,22 +1,17 @@
 package main
 
 import (
-	"StudentScore/student"
-	"bufio"
+	"StudentScore/database"
 	"fmt"
-	"os"
-	"strconv"
-	"strings"
 )
 
 func main() {
-	var a1 student.StudentA
-	a1.AddStudentA()
-	consoleReader := bufio.NewReader(os.Stdin)
-	fmt.Println("Nhap ID sinh vien muon tim\n")
-	id, _ := consoleReader.ReadString('\n')
-	id = strings.Replace(id, "\n", "", -1)
-	IDInput, _ := strconv.ParseInt(id, 10, 64)
-
-	student.FindStudent(IDInput)
+	db := database.NewDB()
+	studentRepo := database.NewStudentRepo(db)
+	err := studentRepo.DeleteStudent("272763")
+	if err != nil {
+		fmt.Println("xoa k thanh cong")
+		return
+	}
+	fmt.Println("xoa student thanh cong")
 }
